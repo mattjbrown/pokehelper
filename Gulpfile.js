@@ -35,6 +35,12 @@ var paths = {
       ]
     },
     out: 'app/scripts'
+  },
+  css: {
+    in: [
+      'src/**/*.css'
+    ],
+    out: 'app/css'
   }
 };
 
@@ -43,18 +49,27 @@ gulp.task('default', ['build']);
 
 gulp.task('watch', ['build-watch']);
 
-gulp.task('build', ['html', 'js']);
+gulp.task('build', ['html', 'css', 'js']);
 
 gulp.task('build-watch', ['build'], function () {
   gulp.watch(paths.html.in, ['html']);
+  gulp.watch(paths.css.in, ['css']);
   gulp.watch(paths.js.libraries.in, ['js-libraries']);
   gulp.watch(paths.js.pokehelper.in, ['js-pokehelper']);
 });
 
-gulp.task('html', ['js'], function () {
+gulp.task('html', ['js', 'css'], function () {
   return gulp.src(paths.html.in)
     .pipe(logFileRead())
     .pipe(gulp.dest(paths.html.out))
+    .pipe(logFileWrite());
+});
+
+gulp.task('css', function () {
+  return gulp.src(paths.css.in)
+    .pipe(logFileRead())
+    .pipe(concat('global.css'))
+    .pipe(gulp.dest(paths.css.out))
     .pipe(logFileWrite());
 });
 

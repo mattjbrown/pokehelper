@@ -1,11 +1,23 @@
 <!DOCTYPE HTML>
-<html ng-app="PokeHelper" ng-cloak>
+<html ng-app="PokeHelper" ng-cloak layout="vertical">
   <head>
     <script type="text/javascript" src="scripts/libraries.min.js"></script>
     <script type="text/javascript" src="scripts/pokehelper.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/global.css"></script>
   </head>
   <body>
     <div ng-if="$state.current.name != 'home'" ui-view></div>
-    <div ng-if="$state.current.name == 'home'">PokeMain</div>
+    <div ng-if="$state.current.name == 'home'">
+      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+        <md-toolbar class="md-theme-indigo">
+          <h1 class="md-toolbar-tools">Active Team</h1>
+        </md-toolbar>
+      </md-sidenav>
+      <md-tabs md-selected="1">
+        <md-tab label="Tab #1">1</md-tab>
+        <md-tab label="Tab #2">2</md-tab>
+        <md-tab label="Tab #3">3</md-tab>
+      </md-tabs>
+    </div>
   </body>
 </html>
