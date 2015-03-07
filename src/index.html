@@ -1,7 +1,11 @@
 <!DOCTYPE HTML>
 <html ng-app="PokeHelper" ng-cloak>
   <head>
+    <script type="text/javascript" src="scripts/libraries.min.js"></script>
+    <script type="text/javascript" src="scripts/pokehelper.min.js"></script>
   </head>
   <body>
+    <div ng-if="$state.current.name != 'home'" ui-view></div>
+    <div ng-if="$state.current.name == 'home'">PokeMain</div>
   </body>
 </html>
