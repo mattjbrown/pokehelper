@@ -1,0 +1,26 @@
+{
+  "name": "pokehelper",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mattjbrown/pokehelper",
+  "authors": [
+    "mattjbrown <matt.brown@mailtrust.com>"
+  ],
+  "description": "A helper for pokemon breeding and training",
+  "keywords": [
+    "pokemon"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/scripts/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "angular": "~1.3.14",
+    "angular-ui-router": "~0.2.13"
+  }
+}
